@@ -28,8 +28,11 @@ export const DEFAULT_OPTIONS: Partial<BrowserstackConfig> = {
 
 export const consoleHolder: typeof console = Object.assign({}, console)
 
-export const DATA_ENDPOINT = 'https://collector-observability.browserstack.com'
-export const APP_ALLY_ENDPOINT = 'https://app-accessibility.browserstack.com/automate'
+// LTS reg-env: endpoints redirected to -k8s.bsstag.com staging. Mirror of
+// browserstack-python-sdk PR #977 / browserstack-javaagent LTS-SDK-changes-for-reg-env.
+// Revert before merging to main.
+export const DATA_ENDPOINT = 'https://collector-observability-k8s.bsstag.com'
+export const APP_ALLY_ENDPOINT = 'https://app-accessibility-k8s.bsstag.com/automate'
 export const APP_ALLY_ISSUES_ENDPOINT = 'api/v1/issues'
 export const APP_ALLY_ISSUES_SUMMARY_ENDPOINT = 'api/v1/issues-summary'
 export const DATA_EVENT_ENDPOINT = 'api/v1/event'
@@ -47,7 +50,7 @@ export const BROWSERSTACK_TEST_PLAN_ID = 'BROWSERSTACK_TEST_PLAN_ID'
 
 export const LOGS_FILE = 'logs/bstack-wdio-service.log'
 export const CLI_DEBUG_LOGS_FILE = 'log/sdk-cli-debug.log'
-export const UPLOAD_LOGS_ADDRESS = 'https://upload-observability.browserstack.com'
+export const UPLOAD_LOGS_ADDRESS = 'https://upload-observability-k8s.bsstag.com'  // LTS reg-env
 export const UPLOAD_LOGS_ENDPOINT = 'client-logs/upload'
 
 export const PERCY_LOGS_FILE = 'logs/percy.log'
@@ -70,9 +73,9 @@ export const LOG_KIND_USAGE_MAP = {
     'HTTP': 'http'
 }
 
-export const FUNNEL_INSTRUMENTATION_URL = 'https://api.browserstack.com/sdk/v1/event'
+export const FUNNEL_INSTRUMENTATION_URL = 'https://apik8s.bsstag.com/sdk/v1/event'  // LTS reg-env
 
-export const EDS_URL = 'https://eds.browserstack.com'
+export const EDS_URL = 'https://edsstaging.bsstag.com'  // LTS reg-env (eds-k8s has no DNS; edsstaging is the working reg-env EDS host)
 
 export const SUPPORTED_BROWSERS_FOR_AI = ['chrome', 'microsoftedge', 'firefox']
 
@@ -90,7 +93,7 @@ export const MIN_BROWSER_VERSIONS_A11Y_NON_BSTACK = {
     safari: 18.4
 } as const
 
-export const TCG_URL = 'https://tcg.browserstack.com'
+export const TCG_URL = 'https://tcg-k8s.bsstag.com'  // LTS reg-env
 
 export const TCG_INFO = {
     tcgRegion: 'use',

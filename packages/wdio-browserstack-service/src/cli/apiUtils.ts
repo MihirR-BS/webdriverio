@@ -1,14 +1,17 @@
+// LTS reg-env: endpoints redirected to -k8s.bsstag.com staging. Mirror of
+// browserstack-python-sdk PR #977 / browserstack-javaagent LTS-SDK-changes-for-reg-env.
+// Revert before merging to main.
 export default class APIUtils {
-    static FUNNEL_INSTRUMENTATION_URL = 'https://api.browserstack.com/sdk/v1/event'
-    static BROWSERSTACK_AUTOMATE_API_URL = 'https://api.browserstack.com'
-    static BROWSERSTACK_AA_API_URL = 'https://api.browserstack.com'
-    static BROWSERSTACK_PERCY_API_URL = 'https://api.browserstack.com'
-    static BROWSERSTACK_AUTOMATE_API_CLOUD_URL = 'https://api-cloud.browserstack.com'
-    static BROWSERSTACK_AA_API_CLOUD_URL = 'https://api-cloud.browserstack.com'
-    static APP_ALLY_ENDPOINT = 'https://app-accessibility.browserstack.com/automate'
-    static DATA_ENDPOINT = 'https://collector-observability.browserstack.com'
-    static UPLOAD_LOGS_ADDRESS = 'https://upload-observability.browserstack.com'
-    static EDS_URL = 'https://eds.browserstack.com'
+    static FUNNEL_INSTRUMENTATION_URL = 'https://apik8s.bsstag.com/sdk/v1/event'
+    static BROWSERSTACK_AUTOMATE_API_URL = 'https://apik8s.bsstag.com'
+    static BROWSERSTACK_AA_API_URL = 'https://apik8s.bsstag.com'
+    static BROWSERSTACK_PERCY_API_URL = 'https://apik8s.bsstag.com'
+    static BROWSERSTACK_AUTOMATE_API_CLOUD_URL = 'https://api-cloud-k8s.bsstag.com'
+    static BROWSERSTACK_AA_API_CLOUD_URL = 'https://api-cloud-k8s.bsstag.com'
+    static APP_ALLY_ENDPOINT = 'https://app-accessibility-k8s.bsstag.com/automate'
+    static DATA_ENDPOINT = 'https://collector-observability-k8s.bsstag.com'
+    static UPLOAD_LOGS_ADDRESS = 'https://upload-observability-k8s.bsstag.com'
+    static EDS_URL = 'https://edsstaging.bsstag.com'
 
     static updateURLSForGRR(apis: GRRUrls) {
         this.FUNNEL_INSTRUMENTATION_URL = `${apis.automate.api}/sdk/v1/event`

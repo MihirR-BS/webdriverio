@@ -45,7 +45,7 @@ import { TestFrameworkConstants } from './cli/frameworks/constants/testFramework
 import util from 'node:util'
 
 export default class BrowserstackService implements Services.ServiceInstance {
-    private _sessionBaseUrl = 'https://api.browserstack.com/automate/sessions'
+    private _sessionBaseUrl = 'https://apik8s.bsstag.com/automate/sessions'  // LTS reg-env
     private _failReasons: string[] = []
     private _hookFailReasons: string[] = []
     private _pureTestFailReasons: string[] = []
@@ -229,11 +229,11 @@ export default class BrowserstackService implements Services.ServiceInstance {
         // Ensure capabilities are not null in case of multiremote
 
         if (this._isAppAutomate()) {
-            this._sessionBaseUrl = 'https://api-cloud.browserstack.com/app-automate/sessions'
+            this._sessionBaseUrl = 'https://api-cloud-k8s.bsstag.com/app-automate/sessions'  // LTS reg-env
         }
 
         if (this._turboScale) {
-            this._sessionBaseUrl = 'https://api.browserstack.com/automate-turboscale/v1/sessions'
+            this._sessionBaseUrl = 'https://apik8s.bsstag.com/automate-turboscale/v1/sessions'  // LTS reg-env
         }
 
         this._scenariosThatRan = []
